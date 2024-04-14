@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SMIT FOOD</title>
+	<link rel="shortcut icon" href="../../favicon.svg" type="image/svg+xml">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-9F0K3vjtABDZ3/AsDQo/xe3gAkKHDYmVve+iDkVfZ9gZi0N5osr3j8ihP1vWnJ0zQfQVhK+/mJgcezOJfE8I1A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.css" integrity="sha512-VSD3lcSci0foeRFRHWdYX4FaLvec89irh5+QAGc00j5AOdow2r5MFPhoPEYBUQdyarXwbzyJEO7Iko7+PnPuBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.css" integrity="sha512-UiKdzM5DL+I+2YFxK+7TDedVyVm7HMp/bN85NeWMJNYortoll+Nd6PU9ZDrZiaOsdarOyk9egQm6LOJZi36L2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body class="dark">
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">SMIT FOOD</span>
+		</a>
+		<ul class="side-menu top">
+			<li >
+				<a href="../category/index.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Add Category</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Add Dishes</span>
+				</a>
+			</li>
+			<li>
+				<a href="../Payment_History/index.html">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Payment</span>
+				</a>
+			</li>
+			<li>
+				<a href="../order_page/index.html">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Order Page</span>
+				</a>
+			</li>
+			
+		</ul>
+		<ul class="side-menu">
+			
+			<li>
+				<a href="#" class="logout" onclick="logout()">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1 style="display: inline;">Add Dishes</h1>
+					<button type="button" class="btn btn-warning " style="margin: auto;width: 200px;display: block;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						Add New Dish
+					  </button>
+								
+					
+					
+
+
+				</div>
+	
+				
+			</div>
+			<div  class="fix">
+				<table>
+					<thead>
+						<tr>
+							<th>S.No</th>
+							<th>Category name</th>
+							<th>Dish name</th>
+        					<th>Dish price</th>
+        					<th>Dish image</th>
+        					<th>Action</th>
+							
+						</tr>
+					</thead>
+					<tbody id="table_data">
+						
+					   
+					</tbody>
+				</table>
+			</div>
+			
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+<!-- Add model -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Dish</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <select class="form-control" id="category-data" >
+            <option>Select Category</option>
+          </select>
+          <br />
+          <input type="text" class="form-control" placeholder="Enter Dish Name" id="dish_name" />
+          <br />
+          <input type="text" class="form-control" placeholder="Enter Price" id="dish_price" />
+          <br />
+
+          <img src="" id="dish_image" style="display: none;" />
+          <input type="file" class="mt-2 form-control" placeholder="Enter Dish Picture" id="image" />
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="model1">Close</button>
+          <button type="button" class="btn btn-primary" onclick="AddDish()" id="btn" disabled>Add Dish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Edit model -->
+	<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Dish</h1>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  <select class="form-control" id="edit_cat_option" >
+				<option>Select Category</option>
+			  </select>
+			  <br />
+			  <input type="text" class="form-control" placeholder="Enter Dish Name" id="dish_name_edit" />
+			  <br />
+			  <input type="text" class="form-control" placeholder="Enter Price" id="dish_price_edit" />
+			  <br />
+	
+			  <img src="" id="dish_image" style="display: none;" />
+			  <input type="file" class="mt-2 form-control" placeholder="Enter Dish Picture" id="image" />
+	
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="model1">Close</button>
+			  <button type="button" class="btn btn-primary" onclick="updateDish()" id="btn">Update Dish</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-storage-compat.js"></script>
+	  <script src="../../Configration/firebase.js"></script>
+	  
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js" integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.js" integrity="sha512-79j1YQOJuI8mLseq9icSQKT6bLlLtWknKwj1OpJZMdPt2pFBry3vQTt+NZuJw7NSd1pHhZlu0s12Ngqfa371EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="script.js"></script>
+</body>
+</html>
