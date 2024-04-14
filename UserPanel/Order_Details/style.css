@@ -1,3 +1,10 @@
 body{
     background-image: url('./hero-slider-1.jpg');
 }
+
+
+@media screen and (max-width: 995px) {
+.row{
+    flex-direction: column !important;
+}
+}

@@ -10,18 +10,10 @@ table {
     width: 100%;
 }
 
-td img {
-    width: 36px;
-    height: 36px;
-    margin-right: .5rem;
-    border-radius: 50%;
-
-    vertical-align: middle;
-}
 
 table, th, td {
     border-collapse: collapse;
-    padding: 1rem;
+    padding: 10px;
     text-align: left;
     color: white;
 }
@@ -39,7 +31,7 @@ tbody tr:nth-child(even) {
     background-color: #0000000b;
 }
 
-tbody tr {
+/* tbody tr {
     --delay: .1s;
     transition: .5s ease-in-out var(--delay), background-color 0s;
 }
@@ -59,18 +51,7 @@ tbody tr td img {
     transition: .2s ease-in-out;
 }
 
-tbody tr.hide td,
-tbody tr.hide td p {
-    padding: 0;
-    font: 0 / 0 sans-serif;
-    transition: .2s ease-in-out .5s;
-}
 
-tbody tr.hide td img {
-    width: 0;
-    height: 0;
-    transition: .2s ease-in-out .5s;
-}
 
 .status {
     padding: .4rem 0;
@@ -102,41 +83,26 @@ tbody tr.hide td img {
         min-width: 12.1rem;
     }
 }
-
-thead th span.icon-arrow {
-    display: inline-block;
-    width: 1.3rem;
-    height: 1.3rem;
-    border-radius: 50%;
-    border: 1.4px solid transparent;
-    
-    text-align: center;
-    font-size: 1rem;
-    
-    margin-left: .5rem;
-    transition: .2s ease-in-out;
+@media (min-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+@media (max-width: 870px) {
+    td:not(:first-of-type) {
+        min-width: 11.1rem;
+        height: 10px;
+    }
 }
 
-thead th:hover span.icon-arrow{
-    border: 1.4px solid goldenrod;
+th{
+    width: 22%;
 }
 
-thead th:hover {
-    color: goldenrod;
-}
+th:nth-child(1){
+    width: 40vw;
+} */
 
-thead th.active span.icon-arrow{
-    background-color: #6c00bd;
-    color: #fff;
-}
-
-thead th.asc span.icon-arrow{
-    transform: rotate(180deg);
-}
-
-thead th.active,tbody td.active {
-    color: #6c00bd;
-}
 
 .icon-edit{
     color: #006b21;
@@ -147,4 +113,24 @@ thead th.active,tbody td.active {
     color: #b30021;
     text-decoration: none;
     padding: 0 .5rem;
+}
+
+
+@media (max-width: 450px) {
+    td,th{
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 350px) {
+    td,th{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 290px) {
+    td,th{
+        font-size: 7px;
+    }
 }

@@ -1,3 +1,12 @@
 body{
     background-image: url('./hero-slider-3.jpg');
 }
+
+@media screen and (min-width: 995px) {
+.row{
+    flex-direction: row !important;
+}
+.col{
+    width: 50%;
+}
+}

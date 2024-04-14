@@ -12,9 +12,8 @@
 </head>
 
 <body>
-    <div>
+    <div style="height: 100vh; width: 100vw;">
 
-        <div class="container">
             <div class="row">
                 <div class="col col-lg-12 ">
                     <p>
@@ -30,10 +29,10 @@
                         <thead>
                             <tr>
                                 <th> # <span class="icon-arrow"></span></th>
-                                <th> Dish Name<span class="icon-arrow">&UpArrow;</span></th>
-                                <th> Quantity <span class="icon-arrow">&UpArrow;</span></th>
-                                <th> Dish Price <span class="icon-arrow">&UpArrow;</span></th>
-                                <th> Total Price <span class="icon-arrow">&UpArrow;</span></th>
+                                <th class="fix"> Dish Name</th>
+                                <th> Quantity </th>
+                                <th> Dish Price</th>
+                                <th> Total Price</th>
                                 
                             </tr>
                         </thead>
@@ -47,9 +46,7 @@
             </div>
             <div class="container" id="final_order_price" style="margin-top: 100px;"  >
                 <div class="row" >
-                    <div class="col col-lg-3" >
-
-                    </div>
+                    
                     <div class="col col-lg-6" >
 
                         <div class="card" style="background: none !important;color: white;box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.5);">
@@ -77,16 +74,14 @@
                         </div>
 
                     </div>
-                    <div class="col col-lg-3">
-
-                    </div>
+                   
                 </div>
 
 
             </div>
 
-        </div>
     </div>
+    
     
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>

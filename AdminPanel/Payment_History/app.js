@@ -1,6 +1,17 @@
 var table_data = document.getElementById("table_data")
 var amountshow = document.getElementById("amountshow")
 var amounttext = document.getElementById("amounttext")
+
+
+window.addEventListener('resize', function () {
+	if(this.innerWidth < 1224) {
+		sidebar.classList.add('hide');
+	} else {
+		sidebar.classList.remove('hide');
+	}
+}
+)
+
 async function getAllPaymnets() {
     await firebase.database().ref("payments").get()
         .then((snap) => {
@@ -32,3 +43,8 @@ async function getAllPaymnets() {
 
 
 getAllPaymnets()
+
+
+function logout() {
+    window.location.href = "../../Auth/index.html"
+}

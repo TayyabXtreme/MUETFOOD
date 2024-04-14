@@ -16,11 +16,11 @@ async function getAllOrder(status) {
           data[i]["status"] == "pending" ?
 
             view_order.innerHTML += `
-            <div class="col col-lg-4">
-          <div class="card" >
+            <div class="col col-lg-4 fix" style="margin-bottom:15px;width:354px">
+          <div class="card" style="background:none;border:1px solid gold;color:white">
             <div class="card-body">
               <h5 class="card-title" id='${data[i]["userId"]}'>${data[i]["userName"]}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Total Amount : ${data[i]["total_amount"]}</h6>
+              <h6 class="card-subtitle mb-2 ">Total Amount : ${data[i]["total_amount"]}</h6>
               <p class="card-text">Total No Of Dishes :  ${data[i]["dishes"].length} </p>
             
               <a href="#" class="btn btn-danger" id='${data[i]['orderKey']}' onclick='order_Status_Update(this)'>Reject</a>
@@ -35,11 +35,11 @@ async function getAllOrder(status) {
             :
 
             view_order.innerHTML += `
-            <div class="col col-lg-4">
-          <div class="card" >
+            <div class="col col-lg-4 fix" style="margin-bottom:15px;width:354px">
+          <div class="card" style="background:none;border:1px solid gold;color:white">
             <div class="card-body">
               <h5 class="card-title" id='${data[i]["userId"]}'>${data[i]["userName"]}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Total Amount : ${data[i]["total_amount"]}</h6>
+              <h6 class="card-subtitle mb-2 ">Total Amount : ${data[i]["total_amount"]}</h6>
               <p class="card-text">Total No Of Dishes :  ${data[i]["dishes"].length} </p>
             
               

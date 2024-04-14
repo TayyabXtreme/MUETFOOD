@@ -13,7 +13,7 @@ async function getAllorders() {
                 data[i]["status"] == "pending" ?
                     order_Data.innerHTML += `
             
-            <div class="col col-lg-4" >
+            <div class="col col-lg-4"  style="margin-top:20px;">
             <div class="card"  style="background: none !important;border:1px solid gold !important">
                 <div class="card-body" style="background: none !important">
                   <h5 class="card-title" style="color:white">Order No ${i + 1}</h5>
@@ -26,12 +26,14 @@ async function getAllorders() {
                 </div>
               </div>
         </div>
+        
+        
             `
                     :
                     order_Data.innerHTML += `
             
-            <div class="col col-lg-4">
-            <div class="card" style="">
+            <div class="col col-lg-4"  style="margin-top:20px">
+            <div class="card" style="background: none !important;border:1px solid gold !important;color:white">
                 <div class="card-body">
                   <h5 class="card-title">Order No ${i + 1}</h5>
                   <p class="card-text">Total Amount : ${data[i]["total_amount"]}</p>
