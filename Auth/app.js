@@ -68,8 +68,8 @@ async function createAccount() {
             let userId = snap.user.uid //unique
 
             var object = {
-                email:email.value,
-                password:password.value,
+                email:emailnew.value,
+                password:passwordnew.value,
                 userName:userName.value,
                 userType:"user",
                 userId,
