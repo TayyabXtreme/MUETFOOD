@@ -193,29 +193,34 @@ async function deleteDish(e) {
 
     }).showToast();
 }
-
+var a;
+var b;
 async function editDish(e) {
-    await firebase.database().ref("category").child(category_data.value)
-    console.log(e.id)
-    console.log(e.value)
-    await dbref.child(e.value).child(e.id).get()
-        .then((snap) => {
-            console.log(snap.val())
-            dish_name_edit.value = snap.val()["dish_name"]
-            dish_price_edit.value = snap.val()["dish_price"]
-            dish_image.src = snap.val()["dish_image"]
-        })
+     await firebase.database().ref("category").child(e.value)
+     console.log(e.id)
+     console.log(e.value)
+     a=e.id;
+     b=e.value;
+     await dbref.child(e.value).child(e.id).get()
+         .then((snap) => {
+             console.log(snap.val()["category_name"])
+             dish_name_edit.value = snap.val()["dish_name"]
+             dish_price_edit.value = snap.val()["dish_price"]
+             dish_image.src = snap.val()["dish_image"]
+             imageUrl=snap.val()["dish_image"]
+         })
+
     
 }
 
 getAllCategory()
 
 async function updateDish() {
-    await dbref.child(edit_cat_option.value).child(edit_cat_option.value).update({
+    await dbref.child(b).child(a).update({
         dish_name: dish_name_edit.value,
         dish_price: dish_price_edit.value,
         dish_image: imageUrl
-    })
+    });
     ViewDishes()
     Toastify({
 
