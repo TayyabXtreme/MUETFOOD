@@ -27,6 +27,7 @@ let dish_name = document.getElementById("dish_name")
 let dish_price = document.getElementById("dish_price")
 var imageUrl = ""
 let image = document.getElementById("image")
+let images = document.getElementById("images")
 let dish_image = document.getElementById("dish_image")
 let btn= document.getElementById("btn")
 let table_data = document.getElementById("table_data")
@@ -37,6 +38,12 @@ image.addEventListener("change", function (e) {
     // console.log(e.target.files[0])
     imageUpload(e)
 })
+
+images.addEventListener("change", function (e) {
+    // console.log(e.target.files[0])
+    imageUpload(e)
+})
+
 
 function imageUpload(e) {
     var storageRef = firebase.storage().ref();
