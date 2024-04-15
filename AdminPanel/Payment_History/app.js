@@ -12,6 +12,13 @@ window.addEventListener('resize', function () {
 }
 )
 
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.add('hide');
+}
+
+toggleSidebar()
+
 async function getAllPaymnets() {
     await firebase.database().ref("payments").get()
         .then((snap) => {

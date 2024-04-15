@@ -11,6 +11,11 @@ window.addEventListener('resize', function () {
 }
 )
 
+function toggleSidebar() {
+    sidebar.classList.add('hide');
+}
+toggleSidebar()
+
 
 // console.log(firebase)
 let category_data = document.getElementById("category-data")

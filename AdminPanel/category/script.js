@@ -11,6 +11,12 @@ window.addEventListener('resize', function () {
 }
 )
 
+const toggleSidebar = () => {
+    sidebar.classList.add('hide');
+
+}
+
+toggleSidebar();
 
 
 var image = document.getElementById("image")
