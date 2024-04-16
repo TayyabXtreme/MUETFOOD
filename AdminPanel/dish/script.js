@@ -51,7 +51,7 @@ function imageUpload(e) {
     uploadTask.on('state_changed',
         (snapshot) => {
             var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-             console.log(progress)
+    
         },
         (error) => {
             // Handle unsuccessful uploads
@@ -63,7 +63,7 @@ function imageUpload(e) {
                 btn.disabled = false
                 dish_image.src = imageUrl
 
-                console.log('File available at', url);
+               
 
             });
         }
@@ -143,10 +143,10 @@ async function ViewDishes() {
         .then((snapshoot) => {
             if (snapshoot.val() != undefined || snapshoot.val() != null) {
                 var dataValue = Object.values(snapshoot.val())
-                console.log(dataValue)
+               
                 for (var i = 0; i < dataValue.length; i++) {
                     var newdata = Object.values(dataValue[i])
-                    console.log(newdata)
+                  
                     for (var j in newdata) {
                         // console.log(newdata[i])
                         mainData.push(newdata[j])
@@ -160,7 +160,7 @@ async function ViewDishes() {
         })
 
         for(var i in mainData){
-            console.log(mainData[i])
+           
             table_data.innerHTML += `
             <tr >
   <th scope="row">${(Number(i) + 1)}</th>
@@ -181,15 +181,14 @@ async function ViewDishes() {
             `
 
         }
-    console.log(mainData)
+    
 
 }
 
 ViewDishes()
 
 async function deleteDish(e) {
-    console.log(e.id)
-    console.log(e.value)
+    
     await dbref.child(e.value).child(e.id).remove()
     ViewDishes()
     Toastify({
@@ -204,13 +203,12 @@ var a;
 var b;
 async function editDish(e) {
      await firebase.database().ref("category").child(e.value)
-     console.log(e.id)
-     console.log(e.value)
+    
      a=e.id;
      b=e.value;
      await dbref.child(e.value).child(e.id).get()
          .then((snap) => {
-             console.log(snap.val()["category_name"])
+           
              dish_name_edit.value = snap.val()["dish_name"]
              dish_price_edit.value = snap.val()["dish_price"]
              dish_image.src = snap.val()["dish_image"]

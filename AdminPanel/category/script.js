@@ -34,14 +34,14 @@ var dbref = firebase.database().ref("category")
 var imageUrl = ""
 
 image.addEventListener("change", function (e) {
-    console.log(e.target.files[0])
+   
     imageUpload(e)
 })
 
 function imageUpload(e) {
     var storageRef = firebase.storage().ref();
     var uploadTask = storageRef.child(`Category/${e.target.files[0].name}`).put(e.target.files[0]);
-    console.log("Uploading image")
+    
     uploadTask.on('state_changed',
         (snapshot) => {
             var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -57,7 +57,7 @@ function imageUpload(e) {
                 btn.disabled = false
                 cat_image.src = imageUrl
 
-                console.log('File available at', url);
+              
 
             });
         }
@@ -73,7 +73,7 @@ async function AddCategory() {
         if (check == false) {
 
             var key = dbref.push().getKey();
-            console.log(key)
+         
     
             var categoryData = {
                 categoryname: category.value,
@@ -93,7 +93,7 @@ async function AddCategory() {
             }).showToast();
         }
         else {
-            console.log("edit function hit ")
+          
             EditCategoryApi()
           
         }
@@ -123,12 +123,12 @@ function viewCategory() {
 
     dbref.get()
         .then((snapshoot) => {
-            console.log(snapshoot.val())
+          
             if (snapshoot.val() != undefined || snapshoot.val() != null) {
                 var dataValue = Object.values(snapshoot.val())
                 // console.log(dataValue)
                 for (var i in dataValue) {
-                    console.log(i)
+                 
                     Data.innerHTML += `
 
 					<tr>
@@ -186,7 +186,7 @@ function AddCategoryText() {
 }
 
 function DeletCategory(elem) {
-    console.log(elem.parentNode.parentNode)
+   
     elem.parentNode.parentNode.remove()
     dbref.child(elem.id).remove()
 
@@ -194,7 +194,7 @@ function DeletCategory(elem) {
 }
 
 async function EditCategoryApi(){
-    console.log(currentEditKey)
+   
 
     var updateobject = {
         categoryname: category.value,

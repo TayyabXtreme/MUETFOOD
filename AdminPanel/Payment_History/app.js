@@ -22,12 +22,11 @@ toggleSidebar()
 async function getAllPaymnets() {
     await firebase.database().ref("payments").get()
         .then((snap) => {
-            console.log(snap.val())
+        
             var totalAmount = 0
             var data = Object.values(snap.val())
             for (var i = 0; i < data.length; i++) {
-                console.log(data[i]["order "]["userName"])
-                console.log(data[i]["payment"])
+              
                 table_data.innerHTML+=`
                 <tr>
                 <th scope="row">${Number(i)+1}</th>
@@ -39,7 +38,7 @@ async function getAllPaymnets() {
                 totalAmount += Number(data[i]["payment"])
                 
             }
-            console.log(totalAmount)
+           
             amountshow.style.display="block"
             amounttext.innerText = totalAmount
         })

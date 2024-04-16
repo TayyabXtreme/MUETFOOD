@@ -3,6 +3,7 @@ var dish_card = document.getElementById("dish_card")
 var add_to_Card_List = localStorage.getItem("add_to_card")
 var userId = localStorage.getItem("userId")
 var maindata = []
+var aboutCat=document.getElementById("aboutcat");
 if (userId == null) {
     window.location.href = "../../Auth/SignIn/index.html"
 }
@@ -21,10 +22,11 @@ async function getDishes() {
         .then((snap) => {
             // console.log(snap.val())
             var data = Object.values(snap.val())
-            // console.log(data)
+           
             maindata = data;
+            aboutCat.innerText="Delicious "+data[0]["category_name"]+" dish";
             for (var index in data) {
-
+               
                 dish_card.innerHTML += `
                 <li>
               <div class="menu-card hover:card">
@@ -47,7 +49,8 @@ async function getDishes() {
                   </div>
 
                   <p class="card-text label-1">
-                    Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.
+                  Discover deliciousness reimagined with our signature MUET FOOD Special: 
+                  a mouthwatering ${data[index]["dish_name"]} experience that's sure to wow your senses!
                   </p>
 
                 </div>
@@ -86,14 +89,14 @@ async function getDishes() {
 
 function AddToCard(e) {
     var checkData = localStorage.getItem("add_to_card")
-    console.log(checkData=="")
+   
 
     var data = checkData == "" ? [] :  JSON.parse(localStorage.getItem("add_to_card")) ?? []
 
     var i = 0;
     var check = false
     while (i < data.length) {
-        console.log(data[i]["dish_key"])
+       
         if (maindata[e.id]["dish_key"] == data[i]["dish_key"]) {
             check = true
             break
@@ -103,10 +106,10 @@ function AddToCard(e) {
     if (check == false) {
         maindata[e.id]["userId"] = userId
         maindata[e.id]["quantity"] = 1
-        console.log(maindata)
+       
         data.push(maindata[e.id])
         localStorage.setItem("add_to_card", JSON.stringify(data))
-        console.log(data)
+       
         Toastify({
 
             text: "Add To cart ",
