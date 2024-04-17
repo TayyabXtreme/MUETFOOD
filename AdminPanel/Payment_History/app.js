@@ -16,6 +16,7 @@ function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     sidebar.classList.add('hide');
 }
+//hello 
 
 toggleSidebar()
 
